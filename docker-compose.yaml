@@ -1,0 +1,29 @@
+name: darc
+services:
+  orchestrator:
+    restart: always
+    hostname: orchestrator
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+    ports:
+      # - "9229:9229"
+      - "8080:8080"
+      - name: main
+        target: 5196
+        app_protocol: http
+        # host_ip: 127.0.0.1
+        published: "5196"
+        mode: host # or ingress for load balanced
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: /workspace/
+          ignore:
+            - "**/.git/**"
+            - "**/.jj/**"
+            - "**/node_modules/**"
+          
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
