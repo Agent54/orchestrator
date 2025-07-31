@@ -29,6 +29,8 @@ WORKDIR /workspace
 
 RUN docker context create workerd --docker "host=unix:///var/run/workerd.sock"
 
+RUN mkdir -p /root/.local/share/code-server/User
+COPY ./.vscode/settings.json /root/.local/share/code-server/User/settings.json
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 #  --extensions-dir=/workspace/code-server/extensions --user-data-dir=/workspace/code-server/data
 RUN code-server  --install-extension github.github-vscode-theme
@@ -66,7 +68,6 @@ RUN code-server --install-extension kilocode.kilo-code
 
 COPY ./start.sh /root/start.sh
 RUN chmod +x /root/start.sh
-COPY ./.claude/claude.json /root/.claude.json
 COPY ./package.json /tmp/node_workspace/package.json
 
 #  --mount=type=cache,id=pnpm2,target=/pnpm/store
@@ -75,6 +76,8 @@ RUN cd /tmp/node_workspace && pnpm install
 # COPY . /workspace/
 
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
+
+RUN --mount=type=bind,source=./,target=/tmp/workdir jj git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/orchestrator.git
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 

@@ -17,6 +17,8 @@ services:
         mode: host # or ingress for load balanced
     develop:
       watch:
+        - action: rebuild
+          path: Dockerfile
         - action: sync
           path: ./
           target: /workspace/
@@ -24,6 +26,15 @@ services:
             - "**/.git/**"
             - "**/.jj/**"
             - "**/node_modules/**"
-          
+    env_file:
+      - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - git-sync:/shared/git-sync
+      - ./.git-local:/shared/git-local
+      ## check how to share the claude .claude.json file or if store in .claude/...
+      - claude-home:/root/.claude 
+
+volumes:
+  git-sync:
+  claude-home:

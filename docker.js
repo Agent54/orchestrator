@@ -8,6 +8,8 @@ export default {
 		const url = new URL(request.url)
 
 		if (url.host === "api.moby.localhost") {
+			return new Response("Comment out this line in the docker.js file to use the docker API, disable for security reasons...", { status: 403 })
+			
 			// Check if this is a TCP upgrade request (Docker socket connection)
 			const connection = request.headers.get('connection')
 			const upgrade = request.headers.get('upgrade')
@@ -106,6 +108,7 @@ export default {
 		
 		// Handle deploy endpoint
 		if (url.pathname === '/deploy' && request.method === 'POST') {
+			return new Response("Comment out this line in the docker.js file to use the docker API, disable for security reasons...", { status: 403 })
 			try {
 				const { gitUrl, dockerfilePath } = await request.json();
 				

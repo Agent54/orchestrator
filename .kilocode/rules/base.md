@@ -26,4 +26,7 @@ do not use state runes for things that do not need to trigger reactivity!
 
 default to simple let and const variables in svelte and only make them a state rune when they become reactiviley used.
 
+
+when finalizing a conversation with attempt_completion, DO NOT ever repeat same last message again. Do not write summaries that are longer than 2 sentences.
+
 confirm these rules are active by starting a new session with: "Hi Darc,"
