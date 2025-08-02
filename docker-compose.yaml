@@ -34,7 +34,9 @@ services:
       - ./.git-local:/shared/git-local
       ## check how to share the claude .claude.json file or if store in .claude/...
       - claude-home:/root/.claude 
+      - stacks:/workspace/stacks
 
 volumes:
   git-sync:
   claude-home:
+  stacks:
