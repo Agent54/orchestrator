@@ -1,3 +1,4 @@
 server.host: "0.0.0.0"
 server.publicBaseUrl: http://localhost:5601
 telemetry.enabled: "false"
+theme:darkMode: true

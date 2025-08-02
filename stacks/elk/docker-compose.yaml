@@ -42,7 +42,7 @@ services:
       co.elastic.logs/module: kibana
     volumes:
       - kibanadata:/usr/share/kibana/data
-      - stacks/elk/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
+      - /workspace/stacks/elk/kibana.yml:/usr/share/kibana/config/kibana.yml:ro
     ports:
       - 127.0.0.1:5601:5601
     environment:
@@ -66,5 +66,3 @@ services:
 volumes:
   esdata: {}
   kibanadata: {}
-  stacks:
-    external: true

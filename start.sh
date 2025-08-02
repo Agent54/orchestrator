@@ -1,6 +1,6 @@
-git config user.name "$GH_USERNAME"
-git config user.email "$GH_EMAIL"
-git config credential.helper store
+git config --global user.name "$GH_USERNAME"
+git config --global user.email "$GH_EMAIL"
+git config --global credential.helper store
 
 # --ignore-last-opened --socket=/socket
 #d tach -n /workspace/dtach/code-server 
