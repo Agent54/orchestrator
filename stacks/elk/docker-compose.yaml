@@ -66,3 +66,5 @@ services:
 volumes:
   esdata: {}
   kibanadata: {}
+  stacks:
+    external: true

@@ -9,6 +9,7 @@ services:
     ports:
       # - "9229:9229"
       - "8080:8080"
+      - "54545:54545" # caluse auth endpoint
       - name: main
         target: 5196
         app_protocol: http
