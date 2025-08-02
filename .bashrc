@@ -15,6 +15,10 @@ alias foldersize="du -h --max-depth=1"
 alias rsyncfolder="rsync -avzch"
 alias rsynccheck="rsync -avzchi --dry-run"
 
+# TODO:
+# docker inspect volume docker run -rm -v darc_stacks:/inspect alpine ls -la
+# docker start crashing container with bash attached to it
+
 export EDITOR="code"
 
 repo () {

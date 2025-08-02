@@ -2,6 +2,8 @@ git config --global user.name "$GH_USERNAME"
 git config --global user.email "$GH_EMAIL"
 git config --global credential.helper store
 
+ln -sf /root/.claude/claude.json /root/.claude.json  # calude code does not respect the .claude folder and has no args to set it
+
 # --ignore-last-opened --socket=/socket
 #d tach -n /workspace/dtach/code-server 
 # --user-data-dir=/workspace/code-server/data --extensions-dir=/workspace/code-server/extensions --auth=none

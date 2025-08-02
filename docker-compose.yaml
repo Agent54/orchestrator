@@ -34,10 +34,13 @@ services:
       - git-sync:/shared/git-sync
       - ./.git-local:/shared/git-local
       ## check how to share the claude .claude.json file or if store in .claude/...
-      - claude-home:/root/.claude 
-      - stacks:/workspace/stacks
+      - claude-home:/root/.claude
+      - stacks:/workspace/xstacks
+      - code-server-data:/root/.local/share/code-server/User
 
 volumes:
-  git-sync:
-  claude-home:
-  stacks:
+  git-sync: {}
+  claude-home: {}
+  stacks: {}
+  code-server-data: {}
+  
