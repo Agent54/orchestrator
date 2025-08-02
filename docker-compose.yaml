@@ -35,12 +35,17 @@ services:
       - ./.git-local:/shared/git-local
       ## check how to share the claude .claude.json file or if store in .claude/...
       - claude-home:/root/.claude
-      - stacks:/workspace/xstacks
       - code-server-data:/root/.local/share/code-server/User
+      - ./stacks:/workspace/stacks
 
 volumes:
   git-sync: {}
   claude-home: {}
-  stacks: {}
   code-server-data: {}
   
+# TODO:--security-opt apparmor=docker-default docker/compose
+# rootless docker
+# gvisor
+# Open Policy Agent (OPA) for Docker
+# Falco for runtime security monitoring
+# Docker Bench Security for auditing
