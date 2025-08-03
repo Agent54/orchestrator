@@ -3,9 +3,12 @@ FROM node:23
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV PATH=$PATH:/root/.cargo/bin
+ENV DOCKER_CONTAINER=true
+ENV DISPLAY=:99
 
-RUN apt upgrade && apt update
-RUN apt-get install apt-utils openssl curl dtach libssl-dev build-essential -y
+RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,id=apt-lists,target=/var/lib/apt/lists,sharing=locked \
+    apt upgrade && apt update && apt-get install apt-utils openssl curl dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 -y
 
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
@@ -24,6 +27,7 @@ RUN pnpm config set global-dir /pnpm
 RUN --mount=type=cache,id=pnpm2,target=/pnpm/store pnpm install -g @anthropic-ai/claude-code
 
 RUN mkdir /workspace
+RUN mkdir -p ~/.local/share/keyrings
 
 WORKDIR /workspace
 
@@ -86,4 +90,5 @@ RUN ls -la /workspace/
 RUN echo "source /workspace/.bashrc" >> /root/.bashrc
 
 # ENTRYPOINT bash
-CMD /root/start.sh
+# CMD /root/start.sh
+CMD ["/root/start.sh"]

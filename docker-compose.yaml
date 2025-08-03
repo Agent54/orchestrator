@@ -19,14 +19,26 @@ services:
     develop:
       watch:
         - action: rebuild
-          path: Dockerfile
-        - action: sync
-          path: ./
-          target: /workspace/
+          path: ./start.sh
           ignore:
             - "**/.git/**"
             - "**/.jj/**"
             - "**/node_modules/**"
+        # - action: rebuild
+        #   path: ./docker-compose.yaml
+        - action: rebuild
+          path: ./Dockerfile
+          ignore:
+            - "**/.git/**"
+            - "**/.jj/**"
+            - "**/node_modules/**"
+        # - action: sync
+        #   path: ./
+        #   target: /workspace/
+        #   ignore:
+        #     - "**/.git/**"
+        #     - "**/.jj/**"
+        #     - "**/node_modules/**"
     env_file:
       - .env
     volumes:
@@ -36,12 +48,17 @@ services:
       ## check how to share the claude .claude.json file or if store in .claude/...
       - claude-home:/root/.claude
       - code-server-data:/root/.local/share/code-server/User
-      - ./stacks:/workspace/stacks
-
+      - ./stacks/:/workspace/stacks/
+      - ./.vscode/config.yaml:/root/.config/code-server/config.yaml
+      - secrets:/root/.cache/keyring-NHH992 
+      - secrets:/root/.local/share/keyrings
+      - dbus:/var/lib/dbus
 volumes:
   git-sync: {}
   claude-home: {}
   code-server-data: {}
+  secrets: {}
+  dbus: {}
   
 # TODO:--security-opt apparmor=docker-default docker/compose
 # rootless docker
