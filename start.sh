@@ -8,6 +8,8 @@ git config --global user.name "$GH_USERNAME"
 git config --global user.email "$GH_EMAIL"
 git config --global credential.helper store
 
+echo "https://${GH_USERNAME}:${GH_TOKEN}@github.com" > ~/.git-credentials
+
 echo "Setting up environment..."
 
 # Initialize D-Bus machine ID if it doesn't exist

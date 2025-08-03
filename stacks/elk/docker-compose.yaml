@@ -63,6 +63,23 @@ services:
       timeout: 10s
       retries: 120
 
+  filebeat:
+    depends_on:
+      elastic-search:
+        condition: service_healthy
+    image: docker.elastic.co/beats/filebeat:8.16.1
+    user: root
+    restart: always
+    volumes:
+      - $STACKS_PATH/elk/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - filebeatdata:/usr/share/filebeat/data
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elastic-search:9200
+    command: filebeat -e -strict.perms=false
+
 volumes:
   esdata: {}
   kibanadata: {}
+  filebeatdata: {}
