@@ -67,3 +67,4 @@ volumes:
 # Open Policy Agent (OPA) for Docker
 # Falco for runtime security monitoring
 # Docker Bench Security for auditing
+# use docker secret mounts

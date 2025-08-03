@@ -4,27 +4,3 @@ telemetry.enabled: "false"
 uiSettings:
   overrides:
     "theme:darkMode": "true"
-
-savedObjects:
-  defaultImportConflictStrategy: "skip"
-  objects:
-    - id: "docker-logs-*"
-      type: "index-pattern"
-      attributes:
-        title: "Docker"
-        timeFieldName: "@timestamp"
-    - id: "request-logs-*"
-      type: "index-pattern"
-      attributes:
-        title: "Requests"
-        timeFieldName: "@timestamp"
-    - id: "activity-logs-*"
-      type: "index-pattern"
-      attributes:
-        title: "Activity"
-        timeFieldName: "@timestamp"
-    - id: "console-logs-*"
-      type: "index-pattern"
-      attributes:
-        title: "Console Logs"
-        timeFieldName: "@timestamp"

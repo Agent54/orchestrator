@@ -16,4 +16,3 @@ secrets.json
 .dev.vars
 .git-local
 darc
-.vscode/config.yaml
