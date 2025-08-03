@@ -91,4 +91,5 @@ RUN echo "source /workspace/.bashrc" >> /root/.bashrc
 
 # ENTRYPOINT bash
 # CMD /root/start.sh
+
 CMD ["/root/start.sh"]

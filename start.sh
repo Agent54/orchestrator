@@ -8,7 +8,7 @@ git config --global user.name "$GH_USERNAME"
 git config --global user.email "$GH_EMAIL"
 git config --global credential.helper store
 
-echo "https://${GH_USERNAME}:${GH_TOKEN}@github.com" > ~/.git-credentials
+echo "https://${GH_USERNAME}:${GH_TOKEN}@github.com" > /root/.git-credentials
 
 echo "Setting up environment..."
 
@@ -88,7 +88,11 @@ docker compose -f stacks/*/docker-compose.yaml up -d
 # --ignore-last-opened --socket=/socket
 #d tach -n /workspace/dtach/code-server 
 # --user-data-dir=/workspace/code-server/data --extensions-dir=/workspace/code-server/extensions --auth=none
-GITHUB_TOKEN=$GH_TOKEN code-server --disable-telemetry --bind-addr=0.0.0.0:8080 --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
+
+export VSCODE_CLI_USE_FILE_KEYCHAIN=1
+export GITHUB_TOKEN=$GH_TOKEN
+
+code-server --disable-telemetry --bind-addr=0.0.0.0:8080 --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
 
 # dtach -c /workspace/dtach/main 
 pnpm dev

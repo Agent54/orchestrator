@@ -50,7 +50,7 @@ services:
       - code-server-data:/root/.local/share/code-server/User
       - ./stacks/:/workspace/stacks/
       - ./.vscode/config.yaml:/root/.config/code-server/config.yaml
-      - secrets:/root/.cache/keyring-NHH992 
+      - cache:/root/.cache
       - secrets:/root/.local/share/keyrings
       - dbus:/var/lib/dbus
 volumes:
@@ -59,6 +59,7 @@ volumes:
   code-server-data: {}
   secrets: {}
   dbus: {}
+  cache: {}
   
 # TODO:--security-opt apparmor=docker-default docker/compose
 # rootless docker
