@@ -1,0 +1,9 @@
+# TODO: automate Default stacks to load for the orchestrator or move directly to API
+
+default:
+  - name: darc
+    url: https://github.com/Agent54/xe-darc.git
+    branch: main
+  - name: elk
+    url: https://github.com/Agent54/xe-elk.git
+    branch: main

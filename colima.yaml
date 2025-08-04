@@ -1,3 +1,6 @@
+# copy to ~/.colima/_lima/colima-darc/colima.yaml and start with colima start -p darc
+
+
 # ============================================================================================ #
 # To abort, delete the contents of this file including the comments and save as an empty file
 # ============================================================================================ #
@@ -206,6 +209,8 @@ mounts:
   - location: /tmp/colima
     writable: true
   - location: ~/Dev/xe/orchestrator/
+    writable: true
+  - location: ~/Dev/xe/stacks/
     writable: true
 
 # Specify a custom disk image for the virtual machine.

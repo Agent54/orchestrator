@@ -3,11 +3,11 @@
 		{
 			"path": "/workspace",
       "name": "Workspace"
+		},
+    	{
+			"path": "/stacks",
+      "name": "Stacks"
 		}
-    // {
-		// 	"path": "/stacks",
-    //   "name": "Stacks"
-		// }
 	],
 	"settings": {}
 }
