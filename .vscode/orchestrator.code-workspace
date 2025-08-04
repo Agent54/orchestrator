@@ -13,5 +13,47 @@
       		"name": "Darc",
 		}
 	],
-	"settings": {}
+	"settings": {
+		"workbench.colorCustomizations": {
+			// Electric Blue Theme
+			// "commandCenter.background": "#1e40afe1",
+			// "commandCenter.border": "#00d4ff91",
+			// "commandCenter.foreground": "#dbeafe",
+			// "commandCenter.activeBackground": "#1d4ed891",
+			// "commandCenter.activeForeground": "#f0f9ff",
+			// "commandCenter.activeBorder": "#0ea5e9a1",
+
+			// Neon Green Theme
+			// "commandCenter.background": "#16a34ae1",
+			// "commandCenter.border": "#22c55e91",
+			// "commandCenter.foreground": "#dcfce7",
+			// "commandCenter.activeBackground": "#15803d91",
+			// "commandCenter.activeForeground": "#f0fdf4",
+			// "commandCenter.activeBorder": "#22c55ea1",
+
+			// Cyber Orange Theme
+			// "commandCenter.background": "#ea580ce1",
+			// "commandCenter.border": "#ff8c00a1",
+			// "commandCenter.foreground": "#fff7ed",
+			// "commandCenter.activeBackground": "#dc2626a1",
+			// "commandCenter.activeForeground": "#fef2f2",
+			// "commandCenter.activeBorder": "#f97316a1",
+
+			// Violet Glow Theme
+			// "commandCenter.background": "#7c3aede1",
+			// "commandCenter.border": "#a855f7a1",
+			// "commandCenter.foreground": "#f3e8ff",
+			// "commandCenter.activeBackground": "#6d28d9a1",
+			// "commandCenter.activeForeground": "#faf5ff",
+			// "commandCenter.activeBorder": "#8b5cf6a1",
+
+			// Hot Pink Theme
+			// "commandCenter.background": "#db2777e1",
+			// "commandCenter.border": "#ec4899a1",
+			// "commandCenter.foreground": "#fdf2f8",
+			// "commandCenter.activeBackground": "#be185da1",
+			// "commandCenter.activeForeground": "#fff1f2",
+			// "commandCenter.activeBorder": "#f472b6a1"
+		}
+	}
 }

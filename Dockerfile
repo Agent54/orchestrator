@@ -34,7 +34,7 @@ WORKDIR /workspace
 RUN docker context create workerd --docker "host=unix:///var/run/workerd.sock"
 
 RUN mkdir -p /root/.local/share/code-server/User
-COPY ./.vscode/settings.json /root/.local/share/code-server/User/settings.json
+RUN ln -s /workspace/.vscode/settings.json /root/.local/share/code-server/User/settings.json
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 #  --extensions-dir=/workspace/code-server/extensions --user-data-dir=/workspace/code-server/data
 RUN code-server  --install-extension github.github-vscode-theme
