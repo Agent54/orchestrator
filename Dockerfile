@@ -81,13 +81,16 @@ RUN cd /tmp/node_workspace && pnpm install
 
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
 
-RUN jj git remote add upstream https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/orchestrator.git
+RUN jj git remote add upstream https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 
 RUN ls -la /workspace/
 
 RUN echo "source /workspace/.bashrc" >> /root/.bashrc
+
+# add .xe-state to global gitignore
+RUN echo ".xe-state" >> /root/.gitignore
 
 # ENTRYPOINT bash
 # CMD /root/start.sh

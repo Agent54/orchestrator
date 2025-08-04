@@ -83,7 +83,9 @@ fi
 # calude code does not respect the .claude folder and has no args to set it
 ln -sf /root/.claude/claude.json /root/.claude.json  
 
-docker compose -f /stacks/*/docker-compose.yaml up -d
+# docker compose -f /stacks/*/docker-compose.yaml up -d
+
+./stacks.js
 
 # --ignore-last-opened --socket=/socket
 #d tach -n /workspace/dtach/code-server 

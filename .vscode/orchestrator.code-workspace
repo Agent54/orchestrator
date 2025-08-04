@@ -2,11 +2,15 @@
 	"folders": [
 		{
 			"path": "/workspace",
-      "name": "Workspace"
+      		"name": "Orchestrator"
 		},
     	{
-			"path": "/stacks",
-      "name": "Stacks"
+			"path": "/stacks/elk",
+      		"name": "Elk",
+		},
+		{
+			"path": "/stacks/darc",
+      		"name": "Darc",
 		}
 	],
 	"settings": {}

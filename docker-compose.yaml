@@ -20,6 +20,8 @@ services:
       watch:
         - action: restart
           path: ./start.sh
+        - action: restart
+          path: ./stacks.*
         - action: rebuild
           path: ./Dockerfile
         # - action: sync
