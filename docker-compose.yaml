@@ -8,10 +8,10 @@ services:
       context: .
     ports:
       # - "9229:9229"
-      - "8080:8080"
-      - "54545:54545" # caluse auth endpoint
+      - "8080:8080" # vscode server
+      - "54545:54545" # calude auth endpoint
       - name: main
-        target: 5196
+        target: 5196 # orchestrator routing port
         app_protocol: http
         # host_ip: 127.0.0.1
         published: "5196"
