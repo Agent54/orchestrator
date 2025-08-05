@@ -35,8 +35,8 @@ services:
       - .env
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - git-sync:/shared/git-sync
-      - ./.git-local:/shared/git-local
+      - git-sync:/git-sync
+      - ./.git-local:/git-sync/orchestrator
       ## check how to share the claude .claude.json file or if store in .claude/...
       - claude-home:/root/.claude
       - code-server-data:/root/.local/share/code-server/User

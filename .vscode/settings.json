@@ -3,6 +3,7 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "terminal.integrated.cwd": "${workspaceFolder}",
     "amp.tab.enabled": true,
     "amp.tab.experimental.improvedDiffChunking": true,
     "workbench.secondarySideBar.showLabels": false,
@@ -157,5 +158,6 @@
       "git show"
     ],
     "kilo-code.deniedCommands": [],
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "git.enabled": false
 }
