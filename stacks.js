@@ -116,9 +116,7 @@ async function processStacks() {
   console.log("Stack processing complete\n")
 }
 
-async function main() {
-    console.log("Starting stack monitor...")
-    
+async function main() {    
     // Run immediately on start
     await processStacks()
 }

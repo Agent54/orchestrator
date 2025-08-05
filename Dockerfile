@@ -82,6 +82,7 @@ RUN cd /tmp/node_workspace && pnpm install
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
 
 RUN jj git remote add origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
+RUN git config --global init.defaultBranch main
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 
@@ -94,5 +95,7 @@ RUN echo ".xe-state" >> /root/.gitignore
 
 # ENTRYPOINT bash
 # CMD /root/start.sh
+
+
 
 CMD ["/root/start.sh"]
