@@ -34,7 +34,7 @@ WORKDIR /workspace
 RUN docker context create workerd --docker "host=unix:///var/run/workerd.sock"
 
 RUN mkdir -p /root/.local/share/code-server/User
-COPY ./.vscode/settings.json /root/.local/share/code-server/User/settings.json
+RUN ln -s /workspace/.vscode/settings.json /root/.local/share/code-server/User/settings.json
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 #  --extensions-dir=/workspace/code-server/extensions --user-data-dir=/workspace/code-server/data
 RUN code-server  --install-extension github.github-vscode-theme
@@ -81,7 +81,7 @@ RUN cd /tmp/node_workspace && pnpm install
 
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
 
-RUN jj git remote add upstream https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
+RUN jj git remote add origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 

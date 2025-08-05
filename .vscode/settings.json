@@ -25,6 +25,7 @@
 		"workbench.list.smoothScrolling": true,
 		"editor.cursorBlinking": "smooth",
 		"diffEditor.ignoreTrimWhitespace": true,
+    "files.autoSave": "off",
 		"files.exclude": {
 			"**/.git": true,
 			"**/.svn": true,
