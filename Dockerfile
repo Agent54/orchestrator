@@ -96,3 +96,6 @@ RUN echo ".xe-state" >> /root/.gitignore
 # CMD /root/start.sh
 
 CMD ["/root/start.sh"]
+
+
+# test 22323
