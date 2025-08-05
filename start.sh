@@ -87,6 +87,8 @@ ln -sf /root/.claude/claude.json /root/.claude.json
 
 ./stacks.js
 
+watch -m 10 'jj git push --remote sync --allow-empty-description -c @-' &
+
 # --ignore-last-opened --socket=/socket
 #d tach -n /workspace/dtach/code-server 
 # --user-data-dir=/workspace/code-server/data --extensions-dir=/workspace/code-server/extensions --auth=none

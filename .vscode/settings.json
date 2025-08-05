@@ -3,6 +3,7 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "terminal.integrated.cwd": "${workspaceFolder}",
     "amp.tab.enabled": true,
     "amp.tab.experimental.improvedDiffChunking": true,
     "workbench.secondarySideBar.showLabels": false,

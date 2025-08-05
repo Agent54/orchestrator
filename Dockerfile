@@ -8,7 +8,17 @@ ENV DISPLAY=:99
 
 RUN --mount=type=cache,id=apt-cache,target=/var/cache/apt,sharing=locked \
     --mount=type=cache,id=apt-lists,target=/var/lib/apt/lists,sharing=locked \
-    apt upgrade && apt update && apt-get install apt-utils openssl curl dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 -y
+    apt upgrade -y && apt update -y && apt-get install -y apt-utils openssl curl dtach libssl-dev build-essential gnome-keyring libsecret-1-0 libsecret-1-dev libsecret-tools dbus-x11 wget 
+
+# install gh cli
+RUN mkdir -p -m 755 /etc/apt/keyrings \
+	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+	&& cat $out | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+	&& chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+	&& mkdir -p -m 755 /etc/apt/sources.list.d \
+	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+	&& apt update -y \
+	&& apt install gh -y
 
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
@@ -81,8 +91,9 @@ RUN cd /tmp/node_workspace && pnpm install
 
 RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
 
-RUN jj git remote add origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
 RUN git config --global init.defaultBranch main
+RUN jj git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
+RUN jj git remote add sync /git-sync/orchestrator
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 
@@ -95,7 +106,5 @@ RUN echo ".xe-state" >> /root/.gitignore
 
 # ENTRYPOINT bash
 # CMD /root/start.sh
-
-
 
 CMD ["/root/start.sh"]
