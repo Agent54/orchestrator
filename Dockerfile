@@ -93,7 +93,6 @@ RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --de
 
 RUN git config --global init.defaultBranch main
 RUN jj git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
-RUN jj git remote add sync /git-sync/orchestrator
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 

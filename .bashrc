@@ -14,6 +14,7 @@ alias reload="source ~/.zshrc"
 alias foldersize="du -h --max-depth=1"
 alias rsyncfolder="rsync -avzch"
 alias rsynccheck="rsync -avzchi --dry-run"
+alias setup-sync="/workspace/setup-sync.sh"
 
 # TODO:
 # docker inspect volume docker run -rm -v darc_stacks:/inspect alpine ls -la
