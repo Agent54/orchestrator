@@ -89,6 +89,8 @@ ln -sf /root/.claude/claude.json /root/.claude.json
 
 /workspace/setup-sync.sh orchestrator
 
+./sync-loop.sh &
+
 # watch -n 2 'jj git push --remote sync --allow-empty-description -c @-' &
 
 # --ignore-last-opened --socket=/socket
