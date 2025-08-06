@@ -2,7 +2,7 @@
 
 git remote set-url sync /git-sync/$1 2>/dev/null || git remote add sync /git-sync/$1
 
-if [ -d "/git-sync/$1" ]; then
+if [ -d "/git-sync/$1/HEAD" ]; then
     exit 0
 fi
 

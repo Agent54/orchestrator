@@ -100,5 +100,5 @@ export GITHUB_TOKEN=$GH_TOKEN
 
 code-server --disable-telemetry --bind-addr=0.0.0.0:8080 --enable-proposed-api=true --disable-workspace-trust --app-name=darc --disable-getting-started-override /workspace/.vscode/orchestrator.code-workspace &
 
-# dtach -c /workspace/dtach/main 
+# dtach -c /workspace/dtach/main
 pnpm dev

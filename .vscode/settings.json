@@ -28,7 +28,7 @@
 		"diffEditor.ignoreTrimWhitespace": true,
     "files.autoSave": "off",
 		"files.exclude": {
-			"**/.git": true,
+			// "**/.git": true,
 			"**/.svn": true,
 			"**/.hg": true,
 			"**/.DS_Store": true,
