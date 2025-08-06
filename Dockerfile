@@ -95,6 +95,9 @@ RUN git config --global init.defaultBranch main
 RUN jj config set --user ui.default-command log
 RUN jj config set --user ui.pager cat
 
+# auto-local-bookmark = true
+# abandon-unreachable-commits = false
+
 RUN jj git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent54/xe-orchestrator.git
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
@@ -110,4 +113,3 @@ RUN echo ".xe-state" >> /root/.gitignore
 # CMD /root/start.sh
 
 CMD ["/root/start.sh"]
-
