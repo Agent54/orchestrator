@@ -87,7 +87,7 @@ ln -sf /root/.claude/claude.json /root/.claude.json
 
 ./stacks.js
 
-/workspace/setup-sync.sh orchestrator
+/workspace/sync-setup.sh orchestrator
 
 ./sync-loop.sh &
 
