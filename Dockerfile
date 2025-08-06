@@ -94,6 +94,7 @@ RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --de
 RUN git config --global init.defaultBranch main
 RUN jj config set --user ui.default-command log
 RUN jj config set --user ui.pager cat
+RUN jj config set --user git.auto-local-bookmark true
 
 # auto-local-bookmark = true
 # abandon-unreachable-commits = false
