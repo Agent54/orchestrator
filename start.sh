@@ -87,7 +87,7 @@ ln -sf /root/.claude/claude.json /root/.claude.json
 
 ./stacks.js
 
-setup-sync orchestrator
+/workspace/setup-sync.sh orchestrator
 
 # watch -n 2 'jj git push --remote sync --allow-empty-description -c @-' &
 
