@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
       context: .
     ports:
-      # - "9229:9229"
+      - "9229:9229"
       - "8080:8080" # vscode server
       - "54545:54545" # calude auth endpoint
       - name: main

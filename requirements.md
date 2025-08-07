@@ -1,0 +1,5 @@
+- commit / code history
+- limited secrets
+- limit repo history
+- cannot corrupt parent repo
+- nice dev / interop workflow
