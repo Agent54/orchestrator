@@ -89,12 +89,13 @@ RUN cd /tmp/node_workspace && pnpm install
 
 # COPY . /workspace/
 
-RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
-
 RUN git config --global init.defaultBranch main
 RUN jj config set --user ui.default-command log
 RUN jj config set --user ui.pager cat
 RUN jj config set --user git.auto-local-bookmark true
+
+RUN --mount=type=bind,source=./,target=/tmp/workdir jj git clone --colocate --depth 10 /tmp/workdir /workspace
+RUN jj new master
 
 # auto-local-bookmark = true
 # abandon-unreachable-commits = false
@@ -103,6 +104,7 @@ RUN jj git remote set-url origin https://$GH_USERNAME:$GH_TOKEN@github.com/Agent
 
 RUN mv /tmp/node_workspace/node_modules /workspace/
 
+RUN jj
 RUN ls -la /workspace/
 
 RUN echo "source /workspace/.bashrc" >> /root/.bashrc
