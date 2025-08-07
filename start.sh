@@ -7,6 +7,7 @@ set -euo pipefail
 git config --global user.name "$GH_USERNAME"
 git config --global user.email "$GH_EMAIL"
 git config --global credential.helper store
+jj config set --user user.name "$GH_USERNAME" && jj config set --user user.email "$GH_EMAIL"
 
 echo "https://${GH_USERNAME}:${GH_TOKEN}@github.com" > /root/.git-credentials
 

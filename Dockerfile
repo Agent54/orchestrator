@@ -24,8 +24,6 @@ RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 
 RUN cargo binstall --strategies crate-meta-data jj-cli
-RUN jj config set --user user.name "Dev" && jj config set --user user.email "devcontainer@agent54.org"
-
 RUN curl -fsSL https://get.docker.com | sh
 
 RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
