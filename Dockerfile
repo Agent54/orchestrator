@@ -85,6 +85,9 @@ COPY ./package.json /tmp/node_workspace/package.json
 #  --mount=type=cache,id=pnpm2,target=/pnpm/store
 RUN cd /tmp/node_workspace && pnpm install
 
+# replace <meta name="apple-mobile-web-app-capable" content="yes" /> in /usr/lib/code-server/lib/vscode/out/vs/code/browser/workbench/workbench.html with <meta name="apple-mobile-web-app-capable" content="yes" /> <style>body { background-color: #000; }</style>
+RUN sed -i 's/<meta name="apple-mobile-web-app-capable" content="yes" \/>/<meta name="apple-mobile-web-app-capable" content="yes" \/> <style>body { background-color: #000; }<\/style>/' /usr/lib/code-server/lib/vscode/out/vs/code/browser/workbench/workbench.html
+
 # COPY . /workspace/
 
 RUN git config --global init.defaultBranch main
