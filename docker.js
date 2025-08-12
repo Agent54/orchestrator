@@ -163,10 +163,10 @@ export default {
 				buildParams.append('remote', normalizedGitUrl)
 				buildParams.append('version', '1')
 				
-				console.log('Docker build URL:', `http://api.moby.localhost/v1.51/build?${buildParams.toString()}`)
+				console.log('Docker build URL:', `http://api.moby.localhost/1.47/build?${buildParams.toString()}`)
 				console.log('Build parameters:', Object.fromEntries(buildParams.entries()))
 				
-				const buildResponse = await env.docker.fetch(`http://api.moby.localhost/v1.51/build?${buildParams.toString()}`, {
+				const buildResponse = await env.docker.fetch(`http://api.moby.localhost/1.47/build?${buildParams.toString()}`, {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -251,7 +251,7 @@ export default {
 				// Verify the image was created
 				console.log(`Verifying image exists: ${imageTag}`)
 				
-				const imageResponse = await env.docker.fetch(`http://api.moby.localhost/v1.51/images/${imageTag}/json`)
+				const imageResponse = await env.docker.fetch(`http://api.moby.localhost/1.47/images/${imageTag}/json`)
 				if (!imageResponse.ok) {
 					console.error('Image verification failed:', imageResponse.status, await imageResponse.text())
 					return new Response(JSON.stringify({ 
@@ -293,7 +293,7 @@ export default {
 				console.log('Creating container...', containerConfig)
 				
 				// Create the container using proper API endpoint
-				const createResponse = await env.docker.fetch('http://api.moby.localhost/v1.51/containers/create', {
+				const createResponse = await env.docker.fetch('http://api.moby.localhost/1.47/containers/create', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -319,7 +319,7 @@ export default {
 				console.log('Container created:', containerId)
 				
 				// Start the container using proper API endpoint
-				const startResponse = await env.docker.fetch(`http://api.moby.localhost/v1.51/containers/${containerId}/start`, {
+				const startResponse = await env.docker.fetch(`http://api.moby.localhost/1.47/containers/${containerId}/start`, {
 					method: 'POST'
 				})
 				
@@ -376,10 +376,12 @@ export default {
 			console.log("fetching containers")
 
 			const containersRes = await (
-				await env.docker.fetch("http://api.moby.localhost/v1.51/containers/json")
+				await env.docker.fetch("http://api.moby.localhost/containers/json")
 			).json()
 
 			containers = { all: {} }
+
+			// console.log({containersRes})
 
 			containersRes.forEach((container) => {
 				container.ports = []

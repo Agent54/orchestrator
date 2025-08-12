@@ -11,10 +11,11 @@ alias compose="docker compose"
 alias diffo="diff -rq"
 alias ports="lsof -i -P | grep -i 'listen'"
 alias reload="source ~/.zshrc"
-alias foldersize="du -h --max-depth=1"
-alias rsyncfolder="rsync -avzch"
-alias rsynccheck="rsync -avzchi --dry-run"
+alias folder-size="du -h --max-depth=1"
+alias rsync-folder="rsync -avzch"
+alias rsync-check="rsync -avzchi --dry-run"
 alias setup-sync="/workspace/setup-sync.sh"
+alias disk-usage="du -sh /*"
 
 # TODO:
 # docker inspect volume docker run -rm -v darc_stacks:/inspect alpine ls -la
